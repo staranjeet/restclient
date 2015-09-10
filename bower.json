@@ -1,0 +1,17 @@
+{
+  "name": "restclient",
+  "version": "0.0.0",
+  "homepage": "https://github.com/staranjeet/restclient",
+  "authors": [
+    "Taranjeet <reachtotj@gmail.com>"
+  ],
+  "description": "A django based rest client",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
