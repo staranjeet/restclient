@@ -1,5 +1,101 @@
+{% load staticfiles %}
 <html>
-<body>
-Template added
-</body>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>
+			RestClient
+		</title>
+		<link href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+
+	</head>
+	<body>
+
+		<div class="container">
+
+			<div class="row">
+				<h3><a href="/">RestClient</a></h3>	
+			</div>	
+
+			<form class="form-horizontal" id="requestForm">
+
+				<div class="form-group">
+					<div class="col-xs-9 col-md-8 col-md-offset-1">
+						{{form.url}}
+					</div>
+					<div class="col-xs-3 col-md-2 ">
+						{{form.method}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-12 col-md-10 col-md-offset-1">
+						{{form.headers}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-12 col-md-10 col-md-offset-1">
+						{{form.body}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-6 col-md-2 col-md-offset-7">
+						<button type="submit" class="btn btn-primary btn-block">Send</button>	
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<a type="button" class="btn btn-warning btn-block" href="/">Clear</a>
+					</div>
+				</div>
+
+			</form>
+
+			{% if not error %}
+
+				<div class="row">
+
+					<div class="col-xs-12 col-md-10 col-md-offset-1">
+
+						<dl class="dl-horizontal">
+							<dt>Status</dt>
+							<dd> {{response.status_code}}</dd>
+
+							<dt>Response Headers</dt>
+							<dd>
+							{% for key,value in response.headers.items %}
+								<b>{{key}}</b> - {{value}}</br>
+							{% endfor %} 
+							</dd>
+							<dt>Response Body</dt>
+							<dd>
+								<textarea rows="7" cols="100">
+									{{response.text}}
+								</textarea>
+							</dd>
+						</dl>	
+
+					</div>
+				</div>
+
+			{% elif error %}
+
+				<div class="row">
+
+				<div class="col-xs-12 col-md-10 col-md-offset-1">
+
+					<div class="alert alert-danger alert-dismissible" role="alert">
+             			 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              				{{msg}}
+            		</div>
+
+				</div>
+				</div>
+
+			{% endif %}
+
+		</div>
+	</body>
 </html>

@@ -10,7 +10,7 @@ urlpatterns = [
     # url(r'^$', 'restclient.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^d/',DjangoRestClient.as_view(),name="django-rest-client-view"),
+    url(r'^$',DjangoRestClient.as_view(),name="django-rest-client-view"),
 
     url(r'^admin/', include(admin.site.urls)),
 ] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
