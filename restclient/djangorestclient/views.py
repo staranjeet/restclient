@@ -42,9 +42,9 @@ class DjangoRestClient(ListView):
 						error			= True
 						msg				= e
 
-		if not response and not error:
-			error				= True
-			msg					= "Unknown Exception occured"
+			if not response and not error:
+				error				= True
+				msg					= "Unknown Exception occured"
 
 		return render(request,self.template_name,{
 				'form'		: formObj,
