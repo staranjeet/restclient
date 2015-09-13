@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 PROJECT_PATH =os.path.dirname(os.path.realpath(__file__))
 
@@ -115,7 +116,6 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     )
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
